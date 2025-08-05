@@ -2,11 +2,7 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  environment = { 
-    NODE_VERSION = "18",
-    VITE_FORMSPREE_FORM_ID = "",
-    VITE_GEMINI_API_KEY = ""
-  }
+  environment = { NODE_VERSION = "18" }
 
 # Redirects and rewrites
 [[redirects]]
