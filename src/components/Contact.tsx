@@ -3,9 +3,13 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import { useForm, ValidationError } from '@formspree/react';
 
+// .env dosyanıza VITE_FORMSPREE_FORM_ID=your-formspree-form-id ekleyin
+// Formspree form ID'sini .env dosyasından al
+const formspreeFormId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+
 const Contact: React.FC = () => {
-  // Formspree entegrasyonu - API KEY'i kullanıcı ekleyecek
-  const [state, handleSubmit] = useForm("FORMSPREE_FORM_ID"); // Kullanıcı kendi Formspree ID'sini buraya ekleyecek
+  // Formspree entegrasyonu - .env'den alınan ID ile
+  const [state, handleSubmit] = useForm(formspreeFormId || '');
   
   const isSubmitting = state.submitting;
   const hasSucceeded = state.succeeded;
