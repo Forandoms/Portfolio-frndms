@@ -16,7 +16,7 @@ const AIInsights: React.FC = () => {
 
   // API key kontrolü
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  const hasApiKey = apiKey && apiKey !== 'your-gemini-api-key' && apiKey.trim() !== '';
+  const hasApiKey = apiKey && apiKey !== 'your-gemini-api-key' && apiKey.trim() !== '' && apiKey.length > 20;
 
   // Beceriler ve projeler temelinde bir sistem istemi oluştur
   const createSystemPrompt = () => {

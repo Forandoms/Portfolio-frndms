@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
   
   const isSubmitting = state.submitting;
   const hasSucceeded = state.succeeded;
-  const hasFormId = !!formspreeFormId && formspreeFormId !== 'your-formspree-form-id';
+  const hasFormId = !!formspreeFormId && formspreeFormId !== 'your-formspree-form-id' && formspreeFormId.length > 5;
 
   // Form ID yoksa form gönderimini devre dışı bırak
   const handleFormSubmit = (e: React.FormEvent) => {

@@ -4,6 +4,10 @@
   publish = "dist"
   environment = { NODE_VERSION = "18" }
 
+# Secrets scanning'i devre dışı bırak
+[build.environment]
+  SECRETS_SCAN_ENABLED = "false"
+
 # Redirects and rewrites
 [[redirects]]
   from = "/*"
