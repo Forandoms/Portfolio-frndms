@@ -14,6 +14,10 @@ const AIInsights: React.FC = () => {
   const [error, setError] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // API key kontrolü
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const hasApiKey = apiKey && apiKey !== 'your_gemini_api_key_here' && apiKey.trim() !== '';
+
   // Beceriler ve projeler temelinde bir sistem istemi oluştur
   const createSystemPrompt = () => {
     const skillsList = skills.map(skill => `${skill.name} (${skill.level}% yeterlilik)`).join(', ');
@@ -32,10 +36,8 @@ Sadece bu konular hakkında bilgi ver. Başka sorular için şunu söyle: "Üzg�
   const sendMessage = async () => {
     if (!inputValue.trim() || loading) return;
     
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    
-    if (!apiKey || apiKey === 'your_gemini_api_key_here') {
-      setError('Please set your Gemini API key in the .env file');
+    if (!hasApiKey) {
+      setError('Gemini API anahtarı yapılandırılmamış. Lütfen .env dosyasına VITE_GEMINI_API_KEY ekleyin.');
       return;
     }
 
@@ -130,6 +132,13 @@ Sadece bu konular hakkında bilgi ver. Başka sorular için şunu söyle: "Üzg�
               </p>
             </div>
 
+            {!hasApiKey && (
+              <div className="bg-yellow-500/20 border border-yellow-500 text-yellow-300 p-4 rounded-lg mb-6">
+                <p className="font-semibold">AI Özelliği Devre Dışı:</p>
+                <p>Gemini API anahtarı yapılandırılmamış. AI sohbet özelliğini kullanmak için .env dosyasına VITE_GEMINI_API_KEY ekleyin.</p>
+              </div>
+            )}
+
             {error && (
               <div className="bg-red-500/20 border border-red-500 text-red-300 p-4 rounded-lg mb-6">
                 <p className="font-semibold">Hata:</p>
@@ -142,7 +151,10 @@ Sadece bu konular hakkında bilgi ver. Başka sorular için şunu söyle: "Üzg�
                 {messages.length === 0 ? (
                   <div className="flex items-center justify-center h-full">
                     <p className="text-slate-400 text-center">
-                      Eymen'in becerileri, projeleri veya teknolojileri hakkında bir soru sorun
+                      {hasApiKey 
+                        ? "Eymen'in becerileri, projeleri veya teknolojileri hakkında bir soru sorun"
+                        : "AI özelliği şu anda kullanılamıyor"
+                      }
                     </p>
                   </div>
                 ) : (
@@ -172,14 +184,14 @@ Sadece bu konular hakkında bilgi ver. Başka sorular için şunu söyle: "Üzg�
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Bir soru sorun..."
+                placeholder={hasApiKey ? "Bir soru sorun..." : "AI özelliği devre dışı"}
                 className="flex-1 bg-slate-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none"
                 rows={2}
-                disabled={loading}
+                disabled={loading || !hasApiKey}
               />
               <button
                 onClick={sendMessage}
-                disabled={loading || !inputValue.trim()}
+                disabled={loading || !inputValue.trim() || !hasApiKey}
                 className="bg-yellow-400 text-slate-900 p-3 rounded-lg hover:bg-yellow-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
               >
                 {loading ? (
