@@ -1,1 +1,10 @@
-/* /index.html 200
+# Netlify _redirects file
+
+# Serve the index.html for any unknown routes (SPA fallback)
+/*    /index.html   200
+
+# Explicitly serve assets from the assets directory
+/assets/*  /assets/:splat  200
+
+# Handle 404 errors with a custom page
+# /* /404.html 404
