@@ -11,11 +11,22 @@ const formspreeFormId = formspreeUrl.includes('formspree.io/f/')
   : formspreeUrl;
 
 const Contact: React.FC = () => {
-  // Formspree entegrasyonu - .env'den alınan ID ile
-  const [state, handleSubmit] = useForm(formspreeFormId || '');
+  // Formspree entegrasyonu - sadece form ID varsa kullan
+  const [state, handleSubmit] = useForm(formspreeFormId || 'x'); // Geçici ID ile başlat
   
   const isSubmitting = state.submitting;
   const hasSucceeded = state.succeeded;
+  const hasFormId = !!formspreeFormId;
+
+  // Form ID yoksa form gönderimini devre dışı bırak
+  const handleFormSubmit = (e: React.FormEvent) => {
+    if (!hasFormId) {
+      e.preventDefault();
+      alert('Formspree form ID yapılandırılmamış. Lütfen .env dosyasına VITE_FORMSPREE_FORM_ID ekleyin.');
+      return;
+    }
+    handleSubmit(e);
+  };
 
   return (
     <section id="contact" className="py-20 bg-slate-800">
@@ -86,7 +97,7 @@ const Contact: React.FC = () => {
                   <p>Mesajınız başarıyla gönderildi. En kısa sürede size geri dönüş yapacağım.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-white font-semibold mb-2">
