@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const Hero: React.FC = () => {
@@ -23,6 +23,15 @@ const Hero: React.FC = () => {
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const downloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/cv.pdf';
+    link.download = 'Eymen_Ali_Sahin_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -55,6 +64,13 @@ const Hero: React.FC = () => {
             className="border-2 border-yellow-400 text-yellow-400 px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 hover:text-slate-900 transition-all duration-300"
           >
             İletişime Geç
+          </button>
+          <button 
+            onClick={downloadCV}
+            className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-slate-900 transition-all duration-300 flex items-center gap-2"
+          >
+            <Download size={20} />
+            CV İndir
           </button>
         </div>
       </div>
