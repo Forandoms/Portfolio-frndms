@@ -4,9 +4,6 @@
   publish = "dist"
   environment = { NODE_VERSION = "18" }
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
 # Redirects and rewrites
 [[redirects]]
   from = "/*"
