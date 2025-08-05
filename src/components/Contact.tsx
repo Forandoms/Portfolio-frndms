@@ -123,7 +123,7 @@ const Contact: React.FC = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    value=""
+                    defaultValue=""
                     required
                     className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
                     placeholder="Ne hakkında?"
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                   <textarea
                     id="message"
                     name="message"
-                    value=""
+                    defaultValue=""
                     required
                     rows={5}
                     className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200 resize-none"
