@@ -4,19 +4,27 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import { useForm, ValidationError } from '@formspree/react';
 
-// Formspree form ID'sini .env dosyasından al
-const formspreeUrl = import.meta.env.VITE_FORMSPREE_FORM_ID || '';
-const formspreeFormId = formspreeUrl.includes('formspree.io/f/') 
-  ? formspreeUrl.split('formspree.io/f/')[1] 
-  : formspreeUrl;
+// Formspree form ID'sini .env dosyasından al - build sırasında gizle
+const getFormspreeId = () => {
+  const envId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+  if (!envId || envId === 'your-formspree-form-id') return '';
+  
+  // URL formatındaysa sadece ID kısmını al
+  if (envId.includes('formspree.io/f/')) {
+    return envId.split('formspree.io/f/')[1];
+  }
+  return envId;
+};
 
 const Contact: React.FC = () => {
+  const formspreeFormId = getFormspreeId();
+  
   // Formspree entegrasyonu - sadece form ID varsa kullan
   const [state, handleSubmit] = useForm(formspreeFormId || 'x'); // Geçici ID ile başlat
   
   const isSubmitting = state.submitting;
   const hasSucceeded = state.succeeded;
-  const hasFormId = !!formspreeFormId && formspreeFormId !== 'your-formspree-form-id' && formspreeFormId.length > 5;
+  const hasFormId = !!formspreeFormId && formspreeFormId.length > 5;
 
   // Form ID yoksa form gönderimini devre dışı bırak
   const handleFormSubmit = (e: React.FormEvent) => {

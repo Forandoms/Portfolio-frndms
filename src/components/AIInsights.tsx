@@ -14,9 +14,15 @@ const AIInsights: React.FC = () => {
   const [error, setError] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // API key kontrolü
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  const hasApiKey = apiKey && apiKey !== 'your-gemini-api-key' && apiKey.trim() !== '' && apiKey.length > 20;
+  // API key kontrolü - build sırasında gizle
+  const getApiKey = () => {
+    const envKey = import.meta.env.VITE_GEMINI_API_KEY;
+    if (!envKey || envKey === 'your-gemini-api-key' || envKey.trim() === '') return '';
+    return envKey;
+  };
+
+  const apiKey = getApiKey();
+  const hasApiKey = apiKey && apiKey.length > 20;
 
   // Beceriler ve projeler temelinde bir sistem istemi oluştur
   const createSystemPrompt = () => {

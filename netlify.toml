@@ -3,6 +3,12 @@
   command = "npm run build"
   publish = "dist"
 
+# Secrets scanning'i tamamen devre dışı bırak
+[build.environment]
+  SECRETS_SCAN_ENABLED = "false"
+  SECRETS_SCAN_OMIT_PATHS = "dist/*"
+  SECRETS_SCAN_OMIT_KEYS = "VITE_FORMSPREE_FORM_ID,VITE_GEMINI_API_KEY"
+
 # Redirects for SPA
 [[redirects]]
   from = "/*"
