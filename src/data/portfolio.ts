@@ -5,26 +5,45 @@ export const personalInfo: PersonalInfo = {
   title: "Full Stack Geliştirici",
   email: "eymensahin167@gmail.com",
   secondaryEmail: "eyshnsoftware@gmail.com",
-  phone: "+90 XXX XXX XX XX",
-  location: "İstanbul, Türkiye",
-  bio: "Modern web teknolojilerinde uzmanlığa sahip tutkulu bir full-stack geliştiriciyim. Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum.",
+  phone: "", // Telefon numarası kaldırıldı
+  location: "Adana, Çukurova",
+  bio: "Elektrik-Elektronik Mühendisliği Öğrencisi, modern web teknolojilerinde deneyime sahip tutkulu bir full-stack geliştiriciyim. Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum.",
   linkedin: "https://www.linkedin.com/in/eymen-ali-%C5%9Fahin/",
   instagram: "https://www.instagram.com/_eymns_/"
 };
 
 export const skills: Skill[] = [
+  // Front-end Skills
   { name: "React", level: 90, category: "frontend" },
   { name: "TypeScript", level: 85, category: "frontend" },
+  { name: "JavaScript", level: 95, category: "frontend" },
+  { name: "HTML/CSS", level: 90, category: "frontend" },
+  { name: "Tailwind CSS", level: 85, category: "frontend" },
   { name: "Next.js", level: 80, category: "frontend" },
+  { name: "Vue.js", level: 75, category: "frontend" },
+  
+  // Back-end Skills
   { name: "Node.js", level: 85, category: "backend" },
+  { name: "Express.js", level: 80, category: "backend" },
   { name: "Python", level: 75, category: "backend" },
+  { name: "Django", level: 70, category: "backend" },
   { name: "PostgreSQL", level: 80, category: "backend" },
-  { name: "Docker", level: 70, category: "tools" },
-  { name: "AWS", level: 65, category: "tools" },
-  { name: "Figma", level: 75, category: "design" },
-  { name: "Arduino", level: 85, category: "tools" },
-  { name: "C++", level: 75, category: "backend" },
-  { name: "IoT", level: 80, category: "tools" },
+  { name: "MongoDB", level: 75, category: "backend" },
+  { name: "REST API", level: 85, category: "backend" },
+  { name: "GraphQL", level: 70, category: "backend" },
+  
+  // Tools & DevOps
+  { name: "Git", level: 90, category: "tools" },
+  { name: "Docker", level: 75, category: "tools" },
+  { name: "AWS", level: 70, category: "tools" },
+  { name: "Vercel", level: 85, category: "tools" },
+  { name: "Netlify", level: 80, category: "tools" },
+  { name: "Figma", level: 75, category: "tools" },
+  
+  // Design
+  { name: "UI/UX Design", level: 80, category: "design" },
+  { name: "Responsive Design", level: 90, category: "design" },
+  { name: "Wireframing", level: 75, category: "design" }
 ];
 
 export const projects: Project[] = [

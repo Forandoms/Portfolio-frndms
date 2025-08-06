@@ -77,16 +77,6 @@ const Contact: React.FC = () => {
 
                 <div className="flex items-center space-x-4">
                   <div className="bg-yellow-400 p-3 rounded-full">
-                    <Phone className="w-6 h-6 text-slate-900" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold">Telefon</h4>
-                    <p className="text-slate-300">{personalInfo.phone}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-yellow-400 p-3 rounded-full">
                     <MapPin className="w-6 h-6 text-slate-900" />
                   </div>
                   <div>
