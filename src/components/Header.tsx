@@ -24,50 +24,53 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled ? 'bg-navy-900/95 backdrop-blur-md shadow-2xl border-b border-gold-500/20' : 'bg-transparent'
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-white">
-            {personalInfo.name.split(' ')[0]}
+          <div className="flex items-center space-x-3">
+            <img src="/logo.png" alt="Logo" className="w-10 h-10 rounded-lg shadow-lg" />
+            <div className="text-2xl font-bold text-white font-premium">
+              {personalInfo.name.split(' ')[0]}
+            </div>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-slate-300 hover:text-yellow-400 transition-colors duration-200"
+              className="text-premium-200 hover:text-gold-400 transition-all duration-300 font-medium"
             >
               Ana Sayfa
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-slate-300 hover:text-yellow-400 transition-colors duration-200"
+              className="text-premium-200 hover:text-gold-400 transition-all duration-300 font-medium"
             >
               Hakkımda
             </button>
             <button 
               onClick={() => scrollToSection('skills')}
-              className="text-slate-300 hover:text-yellow-400 transition-colors duration-200"
+              className="text-premium-200 hover:text-gold-400 transition-all duration-300 font-medium"
             >
               Yetenekler
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-slate-300 hover:text-yellow-400 transition-colors duration-200"
+              className="text-premium-200 hover:text-gold-400 transition-all duration-300 font-medium"
             >
               Projeler
             </button>
             <button 
               onClick={() => scrollToSection('ai-insights')}
-              className="text-slate-300 hover:text-yellow-400 transition-colors duration-200"
+              className="text-premium-200 hover:text-gold-400 transition-all duration-300 font-medium"
             >
               Sohbet Asistanı
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-slate-300 hover:text-yellow-400 transition-colors duration-200"
+              className="text-premium-200 hover:text-gold-400 transition-all duration-300 font-medium"
             >
               İletişim
             </button>
@@ -76,11 +79,11 @@ const Header: React.FC = () => {
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
             <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
-               className="text-slate-300 hover:text-yellow-400 transition-colors duration-200">
+               className="text-premium-200 hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-400/10">
               <Linkedin size={20} />
             </a>
             <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer"
-               className="text-slate-300 hover:text-yellow-400 transition-colors duration-200">
+               className="text-premium-200 hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-400/10">
               <Instagram size={20} />
             </a>
           </div>
@@ -88,7 +91,7 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
+            className="md:hidden text-white p-2 rounded-lg hover:bg-gold-400/10 transition-all duration-300"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -96,24 +99,24 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-slate-800 rounded-lg">
+          <div className="md:hidden mt-4 py-4 bg-navy-800/95 backdrop-blur-md rounded-xl border border-gold-500/20 shadow-2xl animate-fade-in-down">
             <div className="flex flex-col space-y-4 px-4">
-              <button onClick={() => scrollToSection('home')} className="text-left text-slate-300 hover:text-yellow-400">
+              <button onClick={() => scrollToSection('home')} className="text-left text-premium-200 hover:text-gold-400 transition-all duration-300 py-2">
                 Ana Sayfa
               </button>
-              <button onClick={() => scrollToSection('about')} className="text-left text-slate-300 hover:text-yellow-400">
+              <button onClick={() => scrollToSection('about')} className="text-left text-premium-200 hover:text-gold-400 transition-all duration-300 py-2">
                 Hakkımda
               </button>
-              <button onClick={() => scrollToSection('skills')} className="text-left text-slate-300 hover:text-yellow-400">
+              <button onClick={() => scrollToSection('skills')} className="text-left text-premium-200 hover:text-gold-400 transition-all duration-300 py-2">
                 Yetenekler
               </button>
-              <button onClick={() => scrollToSection('projects')} className="text-left text-slate-300 hover:text-yellow-400">
+              <button onClick={() => scrollToSection('projects')} className="text-left text-premium-200 hover:text-gold-400 transition-all duration-300 py-2">
                 Projeler
               </button>
-              <button onClick={() => scrollToSection('ai-insights')} className="text-left text-slate-300 hover:text-yellow-400">
+              <button onClick={() => scrollToSection('ai-insights')} className="text-left text-premium-200 hover:text-gold-400 transition-all duration-300 py-2">
                 Sohbet Asistanı
               </button>
-              <button onClick={() => scrollToSection('contact')} className="text-left text-slate-300 hover:text-yellow-400">
+              <button onClick={() => scrollToSection('contact')} className="text-left text-premium-200 hover:text-gold-400 transition-all duration-300 py-2">
                 İletişim
               </button>
             </div>
