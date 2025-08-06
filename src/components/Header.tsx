@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Linkedin, Instagram } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
+import ThemeToggle from './ThemeToggle';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,10 +31,7 @@ const Header: React.FC = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="Logo" className="w-10 h-10 rounded-lg shadow-lg" />
-            <div className="text-2xl font-bold text-white font-premium">
-              {personalInfo.name.split(' ')[0]}
-            </div>
+            <img src="/logo.png" alt="Logo" className="w-12 h-12 rounded-xl shadow-lg border-2 border-gold-500/30" />
           </div>
 
           {/* Desktop Navigation */}
@@ -76,7 +74,7 @@ const Header: React.FC = () => {
             </button>
           </div>
 
-          {/* Social Links */}
+          {/* Social Links & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
                className="text-premium-200 hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-400/10">
@@ -86,15 +84,19 @@ const Header: React.FC = () => {
                className="text-premium-200 hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-400/10">
               <Instagram size={20} />
             </a>
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2 rounded-lg hover:bg-gold-400/10 transition-all duration-300"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white p-2 rounded-lg hover:bg-gold-400/10 transition-all duration-300"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

@@ -7,11 +7,13 @@ import Projects from './components/Projects';
 import AIInsights from './components/AIInsights';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollProgress from './components/ScrollProgress';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-navy-950">
       <Header />
+      <ScrollProgress />
       <Hero />
       <About />
       <Skills />
