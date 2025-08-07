@@ -1,7 +1,9 @@
-import React from 'react';
-import { skills } from '../data/portfolio';
+import React, { useState } from 'react';
+import { skills, projects } from '../data/portfolio';
 
 const Skills: React.FC = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   const skillCategories = {
     frontend: 'Front-end',
     backend: 'Back-end',
@@ -14,6 +16,33 @@ const Skills: React.FC = () => {
     backend: 'from-blue-500 to-blue-600',
     tools: 'from-green-500 to-green-600',
     design: 'from-purple-500 to-purple-600'
+  };
+
+  // Skill to project mapping
+  const skillProjectMap: { [key: string]: string[] } = {
+    'React': ['E-Ticaret Platformu', 'Yapay Zeka Sohbet Uygulaması'],
+    'Node.js': ['E-Ticaret Platformu'],
+    'TypeScript': ['Görev Yönetim Uygulaması'],
+    'Next.js': ['Görev Yönetim Uygulaması'],
+    'Python': ['Yapay Zeka Sohbet Uygulaması'],
+    'PostgreSQL': ['E-Ticaret Platformu'],
+    'Tailwind CSS': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması'],
+    'Vercel': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması'],
+    'Netlify': ['E-Ticaret Platformu'],
+    'Git': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması', 'Yapay Zeka Sohbet Uygulaması'],
+    'UI/UX Design': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması'],
+    'Responsive Design': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması'],
+    'JavaScript': ['E-Ticaret Platformu', 'Yapay Zeka Sohbet Uygulaması'],
+    'HTML/CSS': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması'],
+    'Express.js': ['E-Ticaret Platformu'],
+    'Django': ['Yapay Zeka Sohbet Uygulaması'],
+    'MongoDB': ['Görev Yönetim Uygulaması'],
+    'REST API': ['E-Ticaret Platformu', 'Yapay Zeka Sohbet Uygulaması'],
+    'GraphQL': ['Görev Yönetim Uygulaması'],
+    'Docker': ['Yapay Zeka Sohbet Uygulaması'],
+    'AWS': ['Yapay Zeka Sohbet Uygulaması'],
+    'Figma': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması'],
+    'Wireframing': ['E-Ticaret Platformu', 'Görev Yönetim Uygulaması']
   };
 
   return (
@@ -36,24 +65,65 @@ const Skills: React.FC = () => {
                   {title}
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {categorySkills.map((skill, index) => (
-                    <div 
-                      key={skill.name} 
-                      className="bg-gradient-to-br from-white to-gray-50 dark:from-navy-700 dark:to-navy-800 p-6 rounded-2xl border border-gray-200 dark:border-gold-500/20 shadow-2xl hover:shadow-gold-500/10 transition-all duration-300 animate-fade-in-up"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white font-premium transition-colors duration-300">{skill.name}</h3>
-                        <span className="text-gold-600 dark:text-gold-400 font-semibold">{skill.level}%</span>
+                  {categorySkills.map((skill, index) => {
+                    const relatedProjects = skillProjectMap[skill.name] || [];
+                    const isHovered = hoveredSkill === skill.name;
+                    
+                    return (
+                      <div 
+                        key={skill.name} 
+                        className={`relative bg-gradient-to-br from-white to-gray-50 dark:from-navy-700 dark:to-navy-800 p-6 rounded-2xl border border-gray-200 dark:border-gold-500/20 shadow-2xl transition-all duration-500 animate-fade-in-up cursor-pointer group ${
+                          isHovered 
+                            ? 'scale-105 shadow-2xl shadow-gold-500/20 border-gold-500/40' 
+                            : 'hover:shadow-gold-500/10 hover:scale-102'
+                        }`}
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                        onMouseEnter={() => setHoveredSkill(skill.name)}
+                        onMouseLeave={() => setHoveredSkill(null)}
+                      >
+                        {/* Main skill content */}
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white font-premium transition-colors duration-300">{skill.name}</h3>
+                          <span className="text-gold-600 dark:text-gold-400 font-semibold">{skill.level}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 dark:bg-navy-600 rounded-full h-3 shadow-inner">
+                          <div 
+                            className={`bg-gradient-to-r ${categoryColors[skill.category]} h-3 rounded-full shadow-lg transition-all duration-1000 ease-out`}
+                            style={{ width: `${skill.level}%` }}
+                          ></div>
+                        </div>
+
+                        {/* Project examples overlay */}
+                        {isHovered && relatedProjects.length > 0 && (
+                          <div className="absolute inset-0 bg-gradient-to-br from-gold-500/95 to-gold-600/95 dark:from-gold-600/95 dark:to-gold-700/95 rounded-2xl p-6 flex flex-col justify-center items-center text-center transform scale-100 animate-fade-in">
+                            <h4 className="text-lg font-bold text-white mb-3 font-premium">
+                              Kullanıldığı Projeler
+                            </h4>
+                            <div className="space-y-2">
+                              {relatedProjects.map((project, idx) => (
+                                <div 
+                                  key={idx}
+                                  className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 text-sm font-medium text-white border border-white/30"
+                                >
+                                  {project}
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mt-4 text-xs text-white/80">
+                              Hover için tıklayın
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Hover indicator */}
+                        {!isHovered && relatedProjects.length > 0 && (
+                          <div className="absolute top-2 right-2">
+                            <div className="w-2 h-2 bg-gold-500 rounded-full animate-pulse"></div>
+                          </div>
+                        )}
                       </div>
-                      <div className="w-full bg-gray-200 dark:bg-navy-600 rounded-full h-3 shadow-inner">
-                        <div 
-                          className={`bg-gradient-to-r ${categoryColors[skill.category]} h-3 rounded-full shadow-lg transition-all duration-1000 ease-out`}
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );

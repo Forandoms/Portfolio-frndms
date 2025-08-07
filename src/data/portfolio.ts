@@ -3,6 +3,14 @@ import { PersonalInfo, Project, Skill } from '../types';
 export const personalInfo: PersonalInfo = {
   name: "Eymen Ali Şahin",
   title: "Full Stack Geliştirici",
+  titles: [
+    "Full Stack Geliştirici",
+    "Yapay Zeka Uzmanı",
+    "Frontend Geliştirici",
+    "Backend Geliştirici",
+    "UI/UX Tasarımcısı",
+    "Mobil Uygulama Geliştirici"
+  ],
   email: "eymensahin167@gmail.com",
   secondaryEmail: "eyshnsoftware@gmail.com",
   location: "Adana, Çukurova",

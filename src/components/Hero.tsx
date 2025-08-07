@@ -4,19 +4,51 @@ import { personalInfo } from '../data/portfolio';
 
 const Hero: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = personalInfo.title;
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const titles = personalInfo.titles || [personalInfo.title];
+  const currentTitle = titles[currentTitleIndex];
 
   useEffect(() => {
-    if (currentIndex < fullText.length) {
+    const typeSpeed = isDeleting ? 50 : 100;
+    const deleteSpeed = 50;
+    const pauseTime = 2000;
+
+    if (!isDeleting && currentCharIndex < currentTitle.length) {
+      // Typing
       const timeout = setTimeout(() => {
-        setDisplayedText(fullText.slice(0, currentIndex + 1));
-        setCurrentIndex(currentIndex + 1);
-      }, 100);
+        setDisplayedText(currentTitle.slice(0, currentCharIndex + 1));
+        setCurrentCharIndex(currentCharIndex + 1);
+      }, typeSpeed);
+
+      return () => clearTimeout(timeout);
+    } else if (!isDeleting && currentCharIndex === currentTitle.length) {
+      // Pause at the end
+      const timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, pauseTime);
+
+      return () => clearTimeout(timeout);
+    } else if (isDeleting && currentCharIndex > 0) {
+      // Deleting
+      const timeout = setTimeout(() => {
+        setDisplayedText(currentTitle.slice(0, currentCharIndex - 1));
+        setCurrentCharIndex(currentCharIndex - 1);
+      }, deleteSpeed);
+
+      return () => clearTimeout(timeout);
+    } else if (isDeleting && currentCharIndex === 0) {
+      // Move to next title
+      const timeout = setTimeout(() => {
+        setCurrentTitleIndex((currentTitleIndex + 1) % titles.length);
+        setIsDeleting(false);
+      }, 500);
 
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, fullText]);
+  }, [currentCharIndex, currentTitle, isDeleting, currentTitleIndex, titles.length]);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');

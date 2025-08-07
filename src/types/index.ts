@@ -17,6 +17,7 @@ export interface Skill {
 export interface PersonalInfo {
   name: string;
   title: string;
+  titles?: string[];
   email: string;
   secondaryEmail?: string;
   location: string;
