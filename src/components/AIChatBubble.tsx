@@ -31,12 +31,20 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
       const aiSection = document.getElementById('ai-insights');
       if (aiSection) {
         const rect = aiSection.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        const isInAISection = rect.top < window.innerHeight && rect.bottom > 0;
         
-        if (isVisible) {
-          setIsVisible(false);
-        } else if (!isMinimized) {
-          setIsVisible(true);
+        if (isInAISection) {
+          // AI bölümündeyken sadece minimize edilmiş baloncuk görünür
+          if (isMinimized) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
+        } else {
+          // AI bölümünde değilken normal davranış
+          if (!isMinimized) {
+            setIsVisible(true);
+          }
         }
       }
     };
