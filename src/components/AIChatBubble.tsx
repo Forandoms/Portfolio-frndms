@@ -49,7 +49,6 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
   }, [isMinimized]);
 
   const handleDismiss = (permanent: boolean = false) => {
-    setIsVisible(false);
     setIsExpanded(false);
     
     if (permanent) {
@@ -122,31 +121,23 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
               Eymen'in becerileri ve projeleri hakkında sorular sorabilirsiniz. Yapay zeka asistanını kullanmak ister misiniz?
             </p>
 
-            {/* Actions */}
-            <div className="space-y-3">
-              <button
-                onClick={handleOpenChat}
-                className="w-full bg-gold-500 text-white px-4 py-3 rounded-xl font-semibold hover:bg-gold-600 transition-all duration-200 flex items-center justify-center space-x-2"
-              >
-                <MessageSquare size={18} />
-                <span>Evet, Kullan</span>
-              </button>
-              
-              <div className="flex space-x-2">
-                <button
-                  onClick={() => handleDismiss()}
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-navy-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-200"
-                >
-                  Git
-                </button>
-                                 <button
-                   onClick={() => handleDismiss(true)}
-                   className="flex-1 px-4 py-2 border border-gray-300 dark:border-navy-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-200"
-                 >
-                   Küçült
-                 </button>
-              </div>
-            </div>
+                         {/* Actions */}
+             <div className="space-y-3">
+               <button
+                 onClick={handleOpenChat}
+                 className="w-full bg-gold-500 text-white px-4 py-3 rounded-xl font-semibold hover:bg-gold-600 transition-all duration-200 flex items-center justify-center space-x-2"
+               >
+                 <MessageSquare size={18} />
+                 <span>Evet</span>
+               </button>
+               
+               <button
+                 onClick={() => handleDismiss(true)}
+                 className="w-full px-4 py-3 border border-gray-300 dark:border-navy-600 text-gray-700 dark:text-gray-300 rounded-xl font-semibold hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-200 flex items-center justify-center space-x-2"
+               >
+                 <span>Hayır</span>
+               </button>
+             </div>
           </div>
         </div>
       )}
