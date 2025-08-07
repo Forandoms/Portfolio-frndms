@@ -34,12 +34,8 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
         const isInAISection = rect.top < window.innerHeight && rect.bottom > 0;
         
         if (isInAISection) {
-          // AI bölümündeyken sadece minimize edilmiş baloncuk görünür
-          if (isMinimized) {
-            setIsVisible(true);
-          } else {
-            setIsVisible(false);
-          }
+          // AI bölümündeyken hiçbir baloncuk görünmez
+          setIsVisible(false);
         } else {
           // AI bölümünde değilken normal davranış
           if (!isMinimized) {
