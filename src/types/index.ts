@@ -19,7 +19,6 @@ export interface PersonalInfo {
   title: string;
   email: string;
   secondaryEmail?: string;
-  phone: string;
   location: string;
   bio: string;
   linkedin?: string;

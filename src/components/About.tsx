@@ -28,10 +28,7 @@ const About: React.FC = () => {
                     <span className="font-medium text-gold-600 dark:text-gold-400">E-posta:</span>
                     <span className="font-premium">{personalInfo.email}</span>
                   </div>
-                  <div className="flex justify-between items-center py-3 border-b border-gray-300 dark:border-gold-500/20">
-                    <span className="font-medium text-gold-600 dark:text-gold-400">Telefon:</span>
-                    <span className="font-premium">{personalInfo.phone}</span>
-                  </div>
+
                   <div className="flex justify-between items-center py-3">
                     <span className="font-medium text-gold-600 dark:text-gold-400">Konum:</span>
                     <span className="font-premium">{personalInfo.location}</span>

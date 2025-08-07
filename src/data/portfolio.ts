@@ -5,7 +5,6 @@ export const personalInfo: PersonalInfo = {
   title: "Full Stack Geliştirici",
   email: "eymensahin167@gmail.com",
   secondaryEmail: "eyshnsoftware@gmail.com",
-  phone: "", // Telefon numarası kaldırıldı
   location: "Adana, Çukurova",
   bio: "Elektrik-Elektronik Mühendisliği Öğrencisi, modern web teknolojilerinde deneyime sahip tutkulu bir full-stack geliştiriciyim. Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum.",
   linkedin: "https://www.linkedin.com/in/eymen-ali-%C5%9Fahin/",
@@ -53,8 +52,8 @@ export const projects: Project[] = [
     description: "React ve Node.js ile oluşturulmuş modern e-ticaret platformu",
     technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project"
+    liveUrl: "https://inquisitive-figolla-23ce9c.netlify.app/",
+    githubUrl: "https://github.com/Forandoms/Dental-Urunler-Satis-Sitesi"
   },
   {
     id: 2,

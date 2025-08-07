@@ -1,6 +1,6 @@
 // .env dosyanıza VITE_FORMSPREE_FORM_ID=your-formspree-form-id ekleyin
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import React from 'react';
+import { Mail, MapPin, Send } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import { useForm, ValidationError } from '@formspree/react';
 
@@ -33,6 +33,7 @@ const Contact: React.FC = () => {
       alert('Formspree form ID yapılandırılmamış. Lütfen .env dosyasına VITE_FORMSPREE_FORM_ID ekleyin.');
       return;
     }
+    // @ts-expect-error: handleSubmit expects a specific event type from Formspree, but React.FormEvent is compatible for our usage.
     handleSubmit(e);
   };
 
