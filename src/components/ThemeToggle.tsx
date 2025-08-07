@@ -7,20 +7,26 @@ const ThemeToggle: React.FC = () => {
   useEffect(() => {
     // Sayfa yüklendiğinde localStorage'dan tema tercihini al
     const savedTheme = localStorage.getItem('theme');
+    console.log('Saved theme:', savedTheme); // Debug için
+    
     if (savedTheme) {
-      setIsDark(savedTheme === 'dark');
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
+      const isDarkTheme = savedTheme === 'dark';
+      setIsDark(isDarkTheme);
+      document.documentElement.classList.toggle('dark', isDarkTheme);
+      document.documentElement.classList.toggle('light', !isDarkTheme);
+      console.log('Theme loaded:', savedTheme); // Debug için
     } else {
       // Varsayılan olarak dark mode
       setIsDark(true);
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
       localStorage.setItem('theme', 'dark');
+      console.log('Default dark theme set'); // Debug için
     }
   }, []);
 
   const toggleTheme = () => {
+    console.log('Toggle clicked, current isDark:', isDark); // Debug için
     const newTheme = !isDark;
     setIsDark(newTheme);
     
@@ -29,14 +35,18 @@ const ThemeToggle: React.FC = () => {
     document.documentElement.classList.toggle('light', !newTheme);
     
     // localStorage'a kaydet
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    const themeValue = newTheme ? 'dark' : 'light';
+    localStorage.setItem('theme', themeValue);
+    console.log('Theme changed to:', themeValue); // Debug için
+    console.log('Current classes:', document.documentElement.classList.toString()); // Debug için
   };
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-navy-800/50 backdrop-blur-sm border border-gold-500/20 text-gold-400 hover:text-gold-300 hover:bg-navy-700/50 transition-all duration-300 shadow-lg"
+      className="p-2 rounded-full bg-navy-800/50 backdrop-blur-sm border border-gold-500/20 text-gold-400 hover:text-gold-300 hover:bg-navy-700/50 transition-all duration-300 shadow-lg z-50"
       title="Tema değiştir"
+      style={{ position: 'relative', zIndex: 1000 }}
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
     </button>

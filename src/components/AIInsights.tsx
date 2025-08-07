@@ -126,23 +126,23 @@ Sohbet kuralları:
   };
 
   return (
-    <section id="ai-insights" className="py-20 bg-slate-900 dark:bg-slate-900 light:bg-gray-50 transition-colors duration-300">
+    <section id="ai-insights" className="py-20 bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-white light:text-gray-900 mb-4 transition-colors duration-300">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
             Sohbet Asistanı
           </h2>
           <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800 dark:bg-slate-800 light:bg-white rounded-2xl p-8 shadow-xl border border-gray-200 light:border-gray-200 dark:border-transparent transition-colors duration-300">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-transparent transition-colors duration-300">
             <div className="text-center mb-8">
               <MessageSquare className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-4 transition-colors duration-300">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">
                 Eymen'in Asistanı
               </h3>
-              <p className="text-slate-300 dark:text-slate-300 light:text-gray-600 mb-6 transition-colors duration-300">
+              <p className="text-gray-600 dark:text-slate-300 mb-6 transition-colors duration-300">
                 Eymen'in becerileri ve projeleri hakkında sorular sorabilirsiniz
               </p>
             </div>
@@ -161,11 +161,11 @@ Sohbet kuralları:
               </div>
             )}
 
-            <div className="bg-slate-700 dark:bg-slate-700 light:bg-gray-100 rounded-lg mb-4 p-4 h-96 overflow-hidden transition-colors duration-300">
+            <div className="bg-gray-100 dark:bg-slate-700 rounded-lg mb-4 p-4 h-96 overflow-hidden transition-colors duration-300">
               <div className="h-full overflow-y-auto" style={{ position: 'relative', scrollBehavior: 'smooth' }}>
                 {messages.length === 0 ? (
                   <div className="flex items-center justify-center h-full">
-                    <p className="text-slate-400 dark:text-slate-400 light:text-gray-500 text-center transition-colors duration-300">
+                    <p className="text-gray-500 dark:text-slate-400 text-center transition-colors duration-300">
                       {hasApiKey 
                         ? "Eymen'in becerileri, projeleri veya teknolojileri hakkında bir soru sorun"
                         : "AI özelliği şu anda kullanılamıyor"
@@ -182,7 +182,7 @@ Sohbet kuralları:
                         <div 
                           className={`max-w-[80%] rounded-lg p-3 ${message.role === 'user' 
                             ? 'bg-yellow-400 text-slate-900' 
-                            : 'bg-slate-600 dark:bg-slate-600 light:bg-gray-200 text-white dark:text-white light:text-gray-900'}`}
+                            : 'bg-gray-200 dark:bg-slate-600 text-gray-900 dark:text-white'}`}
                         >
                           <p className="whitespace-pre-wrap">{message.content}</p>
                         </div>
@@ -200,7 +200,7 @@ Sohbet kuralları:
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder={hasApiKey ? "Bir soru sorun..." : "AI özelliği devre dışı"}
-                className="flex-1 bg-slate-700 dark:bg-slate-700 light:bg-gray-100 text-white dark:text-white light:text-gray-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none transition-colors duration-300"
+                className="flex-1 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none transition-colors duration-300"
                 rows={2}
                 disabled={loading || !hasApiKey}
               />

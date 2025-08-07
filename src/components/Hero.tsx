@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 dark:from-navy-950 dark:via-navy-900 dark:to-navy-800 light:from-gray-50 light:via-white light:to-gray-100 transition-colors duration-300">
+    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-navy-950 dark:via-navy-900 dark:to-navy-800 transition-colors duration-300">
       {/* Premium Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23fbbf24%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%223%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
       
@@ -44,14 +44,14 @@ const Hero: React.FC = () => {
       
       <div className="text-center z-10 px-6 animate-fade-in-up">
         <div className="mb-12">
-          <h1 className="text-5xl md:text-7xl font-bold text-white dark:text-white light:text-gray-900 mb-6 font-premium animate-fade-in-up transition-colors duration-300">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 font-premium animate-fade-in-up transition-colors duration-300">
             {personalInfo.name}
           </h1>
-          <div className="text-2xl md:text-3xl text-gold-400 mb-8 h-10 font-medium">
+          <div className="text-2xl md:text-3xl text-gold-600 dark:text-gold-400 mb-8 h-10 font-medium">
             {displayedText}
-            <span className="animate-pulse text-gold-300">|</span>
+            <span className="animate-pulse text-gold-500 dark:text-gold-300">|</span>
           </div>
-          <p className="text-xl text-premium-200 dark:text-premium-200 light:text-gray-600 max-w-3xl mx-auto leading-relaxed font-premium animate-fade-in-up transition-colors duration-300">
+          <p className="text-xl text-gray-600 dark:text-premium-200 max-w-3xl mx-auto leading-relaxed font-premium animate-fade-in-up transition-colors duration-300">
             {personalInfo.bio}
           </p>
         </div>
@@ -65,13 +65,13 @@ const Hero: React.FC = () => {
           </button>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="border-2 border-gold-500 text-gold-400 dark:text-gold-400 light:text-gold-600 px-10 py-4 rounded-full font-semibold hover:bg-gold-500 hover:text-navy-900 transition-all duration-300 shadow-lg shadow-gold-500/10"
+            className="border-2 border-gold-600 dark:border-gold-500 text-gold-600 dark:text-gold-400 px-10 py-4 rounded-full font-semibold hover:bg-gold-500 hover:text-navy-900 transition-all duration-300 shadow-lg shadow-gold-500/10"
           >
             İletişime Geç
           </button>
           <button 
             onClick={downloadCV}
-            className="border-2 border-premium-300 dark:border-premium-300 light:border-gray-400 text-premium-200 dark:text-premium-200 light:text-gray-700 px-10 py-4 rounded-full font-semibold hover:bg-premium-300 hover:text-navy-900 dark:hover:bg-premium-300 light:hover:bg-gray-400 light:hover:text-white transition-all duration-300 flex items-center gap-3 shadow-lg"
+            className="border-2 border-gray-400 dark:border-premium-300 text-gray-700 dark:text-premium-200 px-10 py-4 rounded-full font-semibold hover:bg-gray-400 hover:text-white dark:hover:bg-premium-300 dark:hover:text-navy-900 transition-all duration-300 flex items-center gap-3 shadow-lg"
           >
             <Download size={20} />
             CV İndir
@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
 
       <button 
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gold-400 animate-bounce hover:text-gold-300 transition-colors duration-300"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gold-600 dark:text-gold-400 animate-bounce hover:text-gold-500 dark:hover:text-gold-300 transition-colors duration-300"
       >
         <ChevronDown size={32} />
       </button>

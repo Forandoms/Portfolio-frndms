@@ -98,3 +98,12 @@ html {
 .animate-slide-in-right {
   animation: slideInRight 0.6s ease-out;
 }
+
+/* Debug için tema değişikliği göstergesi */
+html.dark {
+  background-color: #0a1a2e;
+}
+
+html.light {
+  background-color: #ffffff;
+}
