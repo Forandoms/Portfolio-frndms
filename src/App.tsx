@@ -23,10 +23,18 @@ function App() {
 
   const handleAIPopupAccept = () => {
     setShowAIPopup(false);
-    // Scroll to AI section
+    // Mark as dismissed to prevent showing again
+    localStorage.setItem('aiPopupDismissed', 'true');
+    
+    // Scroll to AI section with offset to account for header
     const aiSection = document.getElementById('ai-insights');
     if (aiSection) {
-      aiSection.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = 100; // More accurate header height including padding
+      const elementPosition = aiSection.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
   };
 

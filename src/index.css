@@ -131,6 +131,19 @@ html {
   transform: scale(1.02);
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 /* Debug için tema değişikliği göstergesi */
 html.dark {
   background-color: #0a1a2e;

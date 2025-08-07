@@ -109,9 +109,35 @@ const Skills: React.FC = () => {
                                 </div>
                               ))}
                             </div>
-                            <div className="mt-4 text-xs text-white/80">
-                              Hover için tıklayın
-                            </div>
+                            <button
+                              onClick={() => {
+                                // Navigate to projects section and highlight related projects
+                                const projectsSection = document.getElementById('projects');
+                                if (projectsSection) {
+                                  const headerHeight = 100;
+                                  const elementPosition = projectsSection.offsetTop - headerHeight;
+                                  window.scrollTo({
+                                    top: elementPosition,
+                                    behavior: 'smooth'
+                                  });
+                                  
+                                  // Set highlighted skill in localStorage for Projects component to read
+                                  localStorage.setItem('highlightedSkill', skill.name);
+                                  localStorage.setItem('highlightedProjects', JSON.stringify(relatedProjects));
+                                  
+                                  // Clear highlight after 3 seconds
+                                  setTimeout(() => {
+                                    localStorage.removeItem('highlightedSkill');
+                                    localStorage.removeItem('highlightedProjects');
+                                    // Force re-render of Projects component
+                                    window.dispatchEvent(new Event('storage'));
+                                  }, 3000);
+                                }
+                              }}
+                              className="mt-4 bg-white text-gold-600 px-4 py-2 rounded-lg font-semibold hover:bg-white/90 transition-all duration-200"
+                            >
+                              Projeleri Gör
+                            </button>
                           </div>
                         )}
 

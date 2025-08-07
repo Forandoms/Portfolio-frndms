@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/portfolio';
 
 const Projects: React.FC = () => {
+  const [highlightedProjects, setHighlightedProjects] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Check for highlighted projects from localStorage
+    const checkHighlightedProjects = () => {
+      const highlightedSkill = localStorage.getItem('highlightedSkill');
+      const highlightedProjectsData = localStorage.getItem('highlightedProjects');
+      
+      if (highlightedSkill && highlightedProjectsData) {
+        try {
+          const projects = JSON.parse(highlightedProjectsData);
+          setHighlightedProjects(projects);
+        } catch (error) {
+          console.error('Error parsing highlighted projects:', error);
+        }
+      } else {
+        setHighlightedProjects([]);
+      }
+    };
+
+    // Check on mount
+    checkHighlightedProjects();
+
+    // Listen for storage events (when localStorage changes)
+    const handleStorageChange = () => {
+      checkHighlightedProjects();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('storage', handleStorageChange); // For same-tab updates
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors duration-300">
       <div className="container mx-auto px-6">
@@ -15,8 +50,18 @@ const Projects: React.FC = () => {
 
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <div key={project.id} className="bg-white dark:bg-slate-700 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl border border-gray-200 dark:border-transparent">
+            {projects.map((project) => {
+              const isHighlighted = highlightedProjects.includes(project.title);
+              
+              return (
+                <div 
+                  key={project.id} 
+                  className={`bg-white dark:bg-slate-700 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl border ${
+                    isHighlighted 
+                      ? 'border-purple-500 shadow-purple-500/50 animate-pulse' 
+                      : 'border-gray-200 dark:border-transparent'
+                  }`}
+                >
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -63,8 +108,8 @@ const Projects: React.FC = () => {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
