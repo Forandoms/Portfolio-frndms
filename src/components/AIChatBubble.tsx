@@ -8,14 +8,13 @@ interface AIChatBubbleProps {
 const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   useEffect(() => {
-    // Check if user has dismissed the bubble
-    const dismissed = localStorage.getItem('aiChatBubbleDismissed');
-    if (dismissed === 'true') {
-      setIsDismissed(true);
-      return;
+    // Check if user has minimized the bubble
+    const minimized = localStorage.getItem('aiChatBubbleMinimized');
+    if (minimized === 'true') {
+      setIsMinimized(true);
     }
 
     // Show bubble after 10 seconds
@@ -36,7 +35,7 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
         
         if (isVisible) {
           setIsVisible(false);
-        } else if (!isDismissed) {
+        } else if (!isMinimized) {
           setIsVisible(true);
         }
       }
@@ -47,15 +46,15 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
     checkIfOnAISection(); // Initial check
 
     return () => window.removeEventListener('scroll', checkIfOnAISection);
-  }, [isDismissed]);
+  }, [isMinimized]);
 
   const handleDismiss = (permanent: boolean = false) => {
     setIsVisible(false);
     setIsExpanded(false);
     
     if (permanent) {
-      setIsDismissed(true);
-      localStorage.setItem('aiChatBubbleDismissed', 'true');
+      setIsMinimized(true);
+      localStorage.setItem('aiChatBubbleMinimized', 'true');
     }
   };
 
@@ -64,11 +63,25 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
     handleDismiss();
   };
 
-  if (!isVisible || isDismissed) return null;
+  if (!isVisible) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-40">
-      {!isExpanded ? (
+      {isMinimized ? (
+        // Minimized bubble - just icon
+        <div className="animate-slide-in-up">
+          <button
+            onClick={() => {
+              setIsMinimized(false);
+              localStorage.removeItem('aiChatBubbleMinimized');
+            }}
+            className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-white p-3 rounded-full shadow-2xl hover:shadow-gold-500/25 transition-all duration-300 transform hover:scale-110"
+            title="AI Asistanı Aç"
+          >
+            <Brain className="w-6 h-6" />
+          </button>
+        </div>
+      ) : !isExpanded ? (
         // Collapsed bubble
         <div className="animate-slide-in-up">
           <button
@@ -126,12 +139,12 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
                 >
                   Git
                 </button>
-                <button
-                  onClick={() => handleDismiss(true)}
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-navy-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-200"
-                >
-                  İlgilenmiyorum
-                </button>
+                                 <button
+                   onClick={() => handleDismiss(true)}
+                   className="flex-1 px-4 py-2 border border-gray-300 dark:border-navy-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:border-gold-500 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-200"
+                 >
+                   Küçült
+                 </button>
               </div>
             </div>
           </div>
