@@ -8,6 +8,7 @@ import AIInsights from './components/AIInsights';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIPopup from './components/AIPopup';
+import AIChatBubble from './components/AIChatBubble';
 
 function App() {
   const [hasUsedAI, setHasUsedAI] = useState(false);
@@ -47,6 +48,19 @@ function App() {
     setHasUsedAI(true);
   };
 
+  const handleOpenAIChat = () => {
+    // Scroll to AI section
+    const aiSection = document.getElementById('ai-insights');
+    if (aiSection) {
+      const headerHeight = 100;
+      const elementPosition = aiSection.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-navy-950 transition-colors duration-300">
       <Header />
@@ -65,6 +79,9 @@ function App() {
           onDismiss={handleAIPopupDismiss}
         />
       )}
+
+      {/* AI Chat Bubble */}
+      <AIChatBubble onOpenChat={handleOpenAIChat} />
     </div>
   );
 }
