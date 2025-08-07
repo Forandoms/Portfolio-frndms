@@ -7,7 +7,11 @@ interface Message {
   content: string;
 }
 
-const AIInsights: React.FC = () => {
+interface AIInsightsProps {
+  onUsage?: () => void;
+}
+
+const AIInsights: React.FC<AIInsightsProps> = ({ onUsage }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
@@ -54,6 +58,11 @@ Sohbet kuralları:
     if (!hasApiKey) {
       setError('Gemini API anahtarı yapılandırılmamış. Lütfen .env dosyasına VITE_GEMINI_API_KEY ekleyin.');
       return;
+    }
+
+    // Mark that user has used AI assistant
+    if (onUsage) {
+      onUsage();
     }
 
     const userMessage: Message = { role: 'user', content: inputValue };
