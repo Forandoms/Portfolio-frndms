@@ -95,15 +95,15 @@ const Skills: React.FC = () => {
 
                         {/* Project examples overlay */}
                         {isHovered && relatedProjects.length > 0 && (
-                          <div className="absolute inset-0 bg-gradient-to-br from-gold-500/95 to-gold-600/95 dark:from-gold-600/95 dark:to-gold-700/95 rounded-2xl p-6 flex flex-col justify-center items-center text-center transform scale-100 animate-fade-in">
-                            <h4 className="text-lg font-bold text-white mb-3 font-premium">
+                          <div className="absolute inset-0 bg-gradient-to-br from-gold-500/95 to-gold-600/95 dark:from-gold-600/95 dark:to-gold-700/95 rounded-2xl p-8 flex flex-col justify-center items-center text-center transform scale-110 animate-fade-in z-10">
+                            <h4 className="text-xl font-bold text-white mb-4 font-premium">
                               Kullanıldığı Projeler
                             </h4>
-                            <div className="space-y-2">
+                            <div className="space-y-3 mb-4">
                               {relatedProjects.map((project, idx) => (
                                 <div 
                                   key={idx}
-                                  className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 text-sm font-medium text-white border border-white/30"
+                                  className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3 text-sm font-medium text-white border border-white/30 whitespace-nowrap"
                                 >
                                   {project}
                                 </div>
@@ -134,7 +134,7 @@ const Skills: React.FC = () => {
                                   }, 3000);
                                 }
                               }}
-                              className="mt-4 bg-white text-gold-600 px-4 py-2 rounded-lg font-semibold hover:bg-white/90 transition-all duration-200"
+                              className="bg-white text-gold-600 px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-all duration-200 text-base"
                             >
                               Projeleri Gör
                             </button>
