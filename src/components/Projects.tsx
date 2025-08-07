@@ -8,10 +8,9 @@ const Projects: React.FC = () => {
   useEffect(() => {
     // Check for highlighted projects from localStorage
     const checkHighlightedProjects = () => {
-      const highlightedSkill = localStorage.getItem('highlightedSkill');
       const highlightedProjectsData = localStorage.getItem('highlightedProjects');
       
-      if (highlightedSkill && highlightedProjectsData) {
+      if (highlightedProjectsData) {
         try {
           const projects = JSON.parse(highlightedProjectsData);
           setHighlightedProjects(projects);
@@ -108,8 +107,9 @@ const Projects: React.FC = () => {
                     )}
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
           </div>
         </div>
       </div>

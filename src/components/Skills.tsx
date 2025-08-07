@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { skills, projects } from '../data/portfolio';
+import { skills } from '../data/portfolio';
 
 const Skills: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);

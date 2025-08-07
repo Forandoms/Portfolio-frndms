@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Brain, Loader2, Send, MessageSquare } from 'lucide-react';
+import { Loader2, Send, MessageSquare } from 'lucide-react';
 import { skills, projects } from '../data/portfolio';
 
 interface Message {

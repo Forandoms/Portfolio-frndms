@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import AIPopup from './components/AIPopup';
 
 function App() {
-  const [showAIPopup, setShowAIPopup] = useState(false);
   const [hasUsedAI, setHasUsedAI] = useState(false);
 
   useEffect(() => {
@@ -22,7 +21,6 @@ function App() {
   }, []);
 
   const handleAIPopupAccept = () => {
-    setShowAIPopup(false);
     // Mark as dismissed to prevent showing again
     localStorage.setItem('aiPopupDismissed', 'true');
     
@@ -39,7 +37,6 @@ function App() {
   };
 
   const handleAIPopupDismiss = () => {
-    setShowAIPopup(false);
     // Mark as dismissed for this session
     localStorage.setItem('aiPopupDismissed', 'true');
   };
