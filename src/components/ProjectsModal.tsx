@@ -44,8 +44,8 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-navy-800 rounded-3xl p-8 max-w-md w-full shadow-2xl border border-gray-200 dark:border-gold-500/20">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+      <div className="bg-white dark:bg-navy-800 rounded-3xl p-8 max-w-md w-full shadow-2xl border border-gray-200 dark:border-gold-500/20 animate-slide-in-up">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -64,18 +64,18 @@ const ProjectsModal: React.FC<ProjectsModalProps> = ({
           <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Kullanıldığı Projeler
           </h4>
-          <div className="space-y-3">
-            {relatedProjects.map((project, idx) => (
-              <div 
-                key={idx}
-                className="bg-gray-50 dark:bg-navy-700 rounded-xl px-4 py-3 border border-gray-200 dark:border-navy-600"
-              >
-                <p className="text-gray-900 dark:text-white font-medium">
-                  {project}
-                </p>
-              </div>
-            ))}
-          </div>
+                     <div className="space-y-3">
+             {relatedProjects.map((project, idx) => (
+               <div 
+                 key={idx}
+                 className="bg-white dark:bg-navy-800 rounded-xl px-4 py-3 border border-gray-200 dark:border-gold-500/20 shadow-sm"
+               >
+                 <p className="text-gray-900 dark:text-white font-medium">
+                   {project}
+                 </p>
+               </div>
+             ))}
+           </div>
         </div>
 
         {/* Actions */}
