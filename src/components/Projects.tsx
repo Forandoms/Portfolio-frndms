@@ -4,10 +4,10 @@ import { projects } from '../data/portfolio';
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 bg-slate-800">
+    <section id="projects" className="py-20 bg-slate-800 dark:bg-slate-800 light:bg-gray-50 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-white light:text-gray-900 mb-4 transition-colors duration-300">
             Öne Çıkan Projeler
           </h2>
           <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="bg-slate-700 rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl">
+              <div key={project.id} className="bg-slate-700 dark:bg-slate-700 light:bg-white rounded-2xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 shadow-xl border border-gray-200 light:border-gray-200 dark:border-transparent">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -27,8 +27,8 @@ const Projects: React.FC = () => {
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">{project.description}</p>
+                  <h3 className="text-xl font-bold text-white dark:text-white light:text-gray-900 mb-3 transition-colors duration-300">{project.title}</h3>
+                  <p className="text-slate-300 dark:text-slate-300 light:text-gray-600 mb-4 leading-relaxed transition-colors duration-300">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
                         href={project.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 border-2 border-slate-500 text-slate-300 px-4 py-2 rounded-lg hover:border-yellow-400 hover:text-yellow-400 transition-colors duration-200"
+                        className="flex items-center space-x-2 border-2 border-slate-500 dark:border-slate-500 light:border-gray-300 text-slate-300 dark:text-slate-300 light:text-gray-600 px-4 py-2 rounded-lg hover:border-yellow-400 hover:text-yellow-400 transition-colors duration-200"
                       >
                         <Github size={16} />
                         <span>Kod</span>

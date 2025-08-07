@@ -19,15 +19,18 @@
 }
 
 .light {
-  --primary-bg: #faf9f6;
-  --secondary-bg: #f5f3f0;
-  --text-primary: #2a2522;
-  --text-secondary: #4f4640;
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
   --accent: #d97706;
 }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Smooth scrolling */

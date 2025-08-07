@@ -37,10 +37,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-800">
+    <section id="contact" className="py-20 bg-slate-800 dark:bg-slate-800 light:bg-gray-50 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-white light:text-gray-900 mb-4 transition-colors duration-300">
             İletişime Geç
           </h2>
           <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
@@ -51,10 +51,10 @@ const Contact: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">
+                <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-6 transition-colors duration-300">
                   Hadi Bağlantı Kuralım
                 </h3>
-                <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                <p className="text-slate-300 dark:text-slate-300 light:text-gray-600 text-lg leading-relaxed mb-8 transition-colors duration-300">
                   Her zaman yeni fırsatlar ve heyecan verici projeler hakkında bilgi almakla ilgileniyorum. 
                   İster bir sorunuz olsun, ister işbirliği yapmak isteyin, ister sadece merhaba demek isteyin, 
                   bana ulaşmaktan çekinmeyin!
@@ -67,10 +67,10 @@ const Contact: React.FC = () => {
                     <Mail className="w-6 h-6 text-slate-900" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">E-posta</h4>
-                    <p className="text-slate-300">{personalInfo.email}</p>
+                    <h4 className="text-white dark:text-white light:text-gray-900 font-semibold transition-colors duration-300">E-posta</h4>
+                    <p className="text-slate-300 dark:text-slate-300 light:text-gray-600 transition-colors duration-300">{personalInfo.email}</p>
                     {personalInfo.secondaryEmail && (
-                      <p className="text-slate-300">{personalInfo.secondaryEmail}</p>
+                      <p className="text-slate-300 dark:text-slate-300 light:text-gray-600 transition-colors duration-300">{personalInfo.secondaryEmail}</p>
                     )}
                   </div>
                 </div>
@@ -80,15 +80,15 @@ const Contact: React.FC = () => {
                     <MapPin className="w-6 h-6 text-slate-900" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Konum</h4>
-                    <p className="text-slate-300">{personalInfo.location}</p>
+                    <h4 className="text-white dark:text-white light:text-gray-900 font-semibold transition-colors duration-300">Konum</h4>
+                    <p className="text-slate-300 dark:text-slate-300 light:text-gray-600 transition-colors duration-300">{personalInfo.location}</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-slate-700 p-8 rounded-2xl">
+            <div className="bg-slate-700 dark:bg-slate-700 light:bg-white p-8 rounded-2xl border border-gray-200 light:border-gray-200 dark:border-transparent transition-colors duration-300">
               {hasSucceeded ? (
                 <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6">
                   <p className="font-semibold">Teşekkürler!</p>
@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
                 <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-white font-semibold mb-2">
+                    <label htmlFor="name" className="block text-white dark:text-white light:text-gray-900 font-semibold mb-2 transition-colors duration-300">
                       Adınız
                     </label>
                     <input
@@ -107,12 +107,12 @@ const Contact: React.FC = () => {
                       name="name"
                       defaultValue=""
                       required
-                      className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
+                      className="w-full px-4 py-3 bg-slate-600 dark:bg-slate-600 light:bg-gray-100 text-white dark:text-white light:text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
                       placeholder="Adınızı girin"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-white font-semibold mb-2">
+                    <label htmlFor="email" className="block text-white dark:text-white light:text-gray-900 font-semibold mb-2 transition-colors duration-300">
                       E-posta Adresiniz
                     </label>
                     <input
@@ -121,14 +121,14 @@ const Contact: React.FC = () => {
                       name="email"
                       defaultValue=""
                       required
-                      className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
+                      className="w-full px-4 py-3 bg-slate-600 dark:bg-slate-600 light:bg-gray-100 text-white dark:text-white light:text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
                       placeholder="E-posta adresinizi girin"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-white font-semibold mb-2">
+                  <label htmlFor="subject" className="block text-white dark:text-white light:text-gray-900 font-semibold mb-2 transition-colors duration-300">
                     Konu
                   </label>
                   <input
@@ -137,13 +137,13 @@ const Contact: React.FC = () => {
                     name="subject"
                     defaultValue=""
                     required
-                    className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-slate-600 dark:bg-slate-600 light:bg-gray-100 text-white dark:text-white light:text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200"
                     placeholder="Ne hakkında?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-white font-semibold mb-2">
+                  <label htmlFor="message" className="block text-white dark:text-white light:text-gray-900 font-semibold mb-2 transition-colors duration-300">
                     Mesaj
                   </label>
                   <textarea
@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
                     defaultValue=""
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-slate-600 dark:bg-slate-600 light:bg-gray-100 text-white dark:text-white light:text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200 resize-none"
                     placeholder="Projeniz hakkında bilgi verin veya sadece merhaba deyin!"
                   ></textarea>
                 </div>

@@ -3,10 +3,10 @@ import { personalInfo } from '../data/portfolio';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900">
+    <section id="about" className="py-20 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 dark:from-navy-900 dark:via-navy-800 dark:to-navy-900 light:from-gray-100 light:via-white light:to-gray-50 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-premium">
+          <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-white light:text-gray-900 mb-4 font-premium transition-colors duration-300">
             Hakkımda
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-600 mx-auto rounded-full shadow-lg"></div>
@@ -15,20 +15,20 @@ const About: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-slide-in-left">
-              <div className="bg-gradient-to-br from-navy-800 to-navy-700 p-8 rounded-2xl border border-gold-500/20 shadow-2xl">
-                <h3 className="text-2xl font-bold text-white mb-6 font-premium">
+              <div className="bg-gradient-to-br from-navy-800 to-navy-700 dark:from-navy-800 dark:to-navy-700 light:from-white light:to-gray-50 p-8 rounded-2xl border border-gold-500/20 dark:border-gold-500/20 light:border-gray-200 shadow-2xl transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-6 font-premium transition-colors duration-300">
                   Kişisel Bilgiler
                 </h3>
-                <div className="space-y-4 text-premium-200">
-                  <div className="flex justify-between items-center py-3 border-b border-gold-500/20">
+                <div className="space-y-4 text-premium-200 dark:text-premium-200 light:text-gray-600">
+                  <div className="flex justify-between items-center py-3 border-b border-gold-500/20 dark:border-gold-500/20 light:border-gray-300">
                     <span className="font-medium text-gold-400">İsim:</span>
                     <span className="font-premium">{personalInfo.name}</span>
                   </div>
-                  <div className="flex justify-between items-center py-3 border-b border-gold-500/20">
+                  <div className="flex justify-between items-center py-3 border-b border-gold-500/20 dark:border-gold-500/20 light:border-gray-300">
                     <span className="font-medium text-gold-400">E-posta:</span>
                     <span className="font-premium">{personalInfo.email}</span>
                   </div>
-                  <div className="flex justify-between items-center py-3 border-b border-gold-500/20">
+                  <div className="flex justify-between items-center py-3 border-b border-gold-500/20 dark:border-gold-500/20 light:border-gray-300">
                     <span className="font-medium text-gold-400">Telefon:</span>
                     <span className="font-premium">{personalInfo.phone}</span>
                   </div>
@@ -41,16 +41,16 @@ const About: React.FC = () => {
             </div>
 
             <div className="space-y-6 animate-slide-in-right">
-              <div className="bg-gradient-to-br from-navy-800 to-navy-700 p-8 rounded-2xl border border-gold-500/20 shadow-2xl">
-                <h3 className="text-2xl font-bold text-white mb-6 font-premium">
+              <div className="bg-gradient-to-br from-navy-800 to-navy-700 dark:from-navy-800 dark:to-navy-700 light:from-white light:to-gray-50 p-8 rounded-2xl border border-gold-500/20 dark:border-gold-500/20 light:border-gray-200 shadow-2xl transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-6 font-premium transition-colors duration-300">
                   Profesyonel Özet
                 </h3>
-                <p className="text-premium-200 leading-relaxed font-premium text-lg">
+                <p className="text-premium-200 dark:text-premium-200 light:text-gray-600 leading-relaxed font-premium text-lg transition-colors duration-300">
                   Modern web teknolojilerinde uzmanlığa sahip tutkulu bir full-stack geliştiriciyim. 
                   Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum. 
                   Kullanıcı deneyimini ön planda tutarak, performanslı ve ölçeklenebilir uygulamalar geliştiriyorum.
                 </p>
-                <div className="mt-6 pt-6 border-t border-gold-500/20">
+                <div className="mt-6 pt-6 border-t border-gold-500/20 dark:border-gold-500/20 light:border-gray-300">
                   <h4 className="text-lg font-semibold text-gold-400 mb-3 font-premium">
                     Uzmanlık Alanları
                   </h4>
