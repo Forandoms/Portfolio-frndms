@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { skills } from '../data/portfolio';
+import ProjectsModal from './ProjectsModal';
 
 const Skills: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState<{name: string, projects: string[]} | null>(null);
 
   const skillCategories = {
     frontend: 'Front-end',
@@ -78,8 +81,12 @@ const Skills: React.FC = () => {
                             : 'hover:shadow-gold-500/10 hover:scale-102'
                         }`}
                         style={{ animationDelay: `${index * 0.1}s` }}
-                        onMouseEnter={() => setHoveredSkill(skill.name)}
-                        onMouseLeave={() => setHoveredSkill(null)}
+                        onClick={() => {
+                          if (relatedProjects.length > 0) {
+                            setSelectedSkill({ name: skill.name, projects: relatedProjects });
+                            setModalOpen(true);
+                          }
+                        }}
                       >
                         {/* Main skill content */}
                         <div className="flex items-center justify-between mb-4">
@@ -93,56 +100,8 @@ const Skills: React.FC = () => {
                           ></div>
                         </div>
 
-                        {/* Project examples overlay */}
-                        {isHovered && relatedProjects.length > 0 && (
-                          <div className="absolute -inset-8 bg-gradient-to-br from-gold-500/95 to-gold-600/95 dark:from-gold-600/95 dark:to-gold-700/95 rounded-3xl p-12 flex flex-col justify-center items-center text-center transform scale-150 animate-fade-in z-50 shadow-2xl">
-                            <h4 className="text-3xl font-bold text-white mb-6 font-premium">
-                              Kullanıldığı Projeler
-                            </h4>
-                            <div className="space-y-4 mb-6">
-                              {relatedProjects.map((project, idx) => (
-                                <div 
-                                  key={idx}
-                                  className="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4 text-lg font-medium text-white border border-white/30 whitespace-nowrap shadow-lg"
-                                >
-                                  {project}
-                                </div>
-                              ))}
-                            </div>
-                            <button
-                              onClick={() => {
-                                // Navigate to projects section and highlight related projects
-                                const projectsSection = document.getElementById('projects');
-                                if (projectsSection) {
-                                  const headerHeight = 100;
-                                  const elementPosition = projectsSection.offsetTop - headerHeight;
-                                  window.scrollTo({
-                                    top: elementPosition,
-                                    behavior: 'smooth'
-                                  });
-                                  
-                                  // Set highlighted skill in localStorage for Projects component to read
-                                  localStorage.setItem('highlightedSkill', skill.name);
-                                  localStorage.setItem('highlightedProjects', JSON.stringify(relatedProjects));
-                                  
-                                  // Clear highlight after 3 seconds
-                                  setTimeout(() => {
-                                    localStorage.removeItem('highlightedSkill');
-                                    localStorage.removeItem('highlightedProjects');
-                                    // Force re-render of Projects component
-                                    window.dispatchEvent(new Event('storage'));
-                                  }, 3000);
-                                }
-                              }}
-                              className="bg-white text-gold-600 px-8 py-4 rounded-xl font-bold hover:bg-white/90 transition-all duration-200 text-xl shadow-lg"
-                            >
-                              Projeleri Gör
-                            </button>
-                          </div>
-                        )}
-
-                        {/* Hover indicator */}
-                        {!isHovered && relatedProjects.length > 0 && (
+                        {/* Click indicator */}
+                        {relatedProjects.length > 0 && (
                           <div className="absolute top-2 right-2">
                             <div className="w-2 h-2 bg-gold-500 rounded-full animate-pulse"></div>
                           </div>
@@ -156,6 +115,19 @@ const Skills: React.FC = () => {
           })}
         </div>
       </div>
+      
+      {/* Projects Modal */}
+      {selectedSkill && (
+        <ProjectsModal
+          isOpen={modalOpen}
+          onClose={() => {
+            setModalOpen(false);
+            setSelectedSkill(null);
+          }}
+          skillName={selectedSkill.name}
+          relatedProjects={selectedSkill.projects}
+        />
+      )}
     </section>
   );
 };
