@@ -37,10 +37,8 @@ const AIChatBubble: React.FC<AIChatBubbleProps> = ({ onOpenChat }) => {
           // AI bölümündeyken hiçbir baloncuk görünmez
           setIsVisible(false);
         } else {
-          // AI bölümünde değilken normal davranış
-          if (!isMinimized) {
-            setIsVisible(true);
-          }
+          // AI bölümünde değilken her zaman görünür
+          setIsVisible(true);
         }
       }
     };
