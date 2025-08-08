@@ -24,4 +24,5 @@ export interface PersonalInfo {
   bio: string;
   linkedin?: string;
   instagram?: string;
+  github?: string;
 }

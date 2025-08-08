@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, Linkedin, Instagram, Github } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 import ThemeToggle from './ThemeToggle';
 
@@ -81,6 +81,10 @@ const Header: React.FC = () => {
             <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
                className="text-gray-700 dark:text-premium-200 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-600/10 dark:hover:bg-gold-400/10">
               <Linkedin size={20} />
+            </a>
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
+               className="text-gray-700 dark:text-premium-200 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-600/10 dark:hover:bg-gold-400/10">
+              <Github size={20} />
             </a>
             <a href={personalInfo.instagram} target="_blank" rel="noopener noreferrer"
                className="text-gray-700 dark:text-premium-200 hover:text-gold-600 dark:hover:text-gold-400 transition-all duration-300 p-2 rounded-full hover:bg-gold-600/10 dark:hover:bg-gold-400/10">

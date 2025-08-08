@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Linkedin, Instagram } from 'lucide-react';
+import { Heart, Linkedin, Instagram, Github } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const Footer: React.FC = () => {
@@ -17,6 +17,14 @@ const Footer: React.FC = () => {
               className="text-gray-600 dark:text-slate-400 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors duration-200"
             >
               <Linkedin size={24} />
+            </a>
+            <a 
+              href={personalInfo.github} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 dark:text-slate-400 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors duration-200"
+            >
+              <Github size={24} />
             </a>
             <a 
               href={personalInfo.instagram} 

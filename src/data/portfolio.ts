@@ -16,7 +16,8 @@ export const personalInfo: PersonalInfo = {
   location: "Adana, Çukurova",
   bio: "Elektrik-Elektronik Mühendisliği 3. sınıf öğrencisi, modern web teknolojilerinde deneyime sahip tutkulu bir full-stack geliştiriciyim. Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum.",
   linkedin: "https://www.linkedin.com/in/eymen-ali-%C5%9Fahin/",
-  instagram: "https://www.instagram.com/_eymns_/"
+  instagram: "https://www.instagram.com/_eymns_/",
+  github: "https://github.com/Forandoms"
 };
 
 export const skills: Skill[] = [
