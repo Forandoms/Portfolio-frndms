@@ -78,7 +78,7 @@ export const projects: Project[] = [
     description: "Modern arayüze sahip yapay zeka destekli akıllı sohbet uygulaması",
     technologies: ["React", "Python", "FastAPI", "OpenAI"],
     image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600",
-    liveUrl: "https://app.netlify.com/projects/foraiinterface/deploys?filter=main",
+    liveUrl: "https://foraiinterface.netlify.app/",
     githubUrl: "https://github.com/Forandoms/ai_interface"
   },
   {
