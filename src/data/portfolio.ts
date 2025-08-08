@@ -83,6 +83,15 @@ export const projects: Project[] = [
   },
 
   {
+    id: 4,
+    title: "Yüksek/Düşük Kart Oyunu",
+    description: "Yapay zekaya karşı Yüksek/Düşük kart oyunu oynayın. Bahis yapın, kazanın ve dükkandan özel kart tasarımları satın alın!",
+    technologies: ["React", "TypeScript", "Gemini AI", "Vite"],
+    image: "https://images.pexels.com/photos/1040157/pexels-photo-1040157.jpeg?auto=compress&cs=tinysrgb&w=600",
+    liveUrl: "/yuksek-dusuk-oyunu/index.html",
+    githubUrl: "https://github.com/Forandoms/yuksek-dusuk-oyunu"
+  },
+  {
     id: 5,
     title: "Hava Durumu İzleme İstasyonu",
     description: "Çevresel verileri toplayan ve gösteren Arduino hava durumu istasyonu",
