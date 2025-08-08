@@ -69,8 +69,8 @@ export const projects: Project[] = [
     description: "Gerçek zamanlı güncellemelerle işbirlikçi görev yönetim uygulaması",
     technologies: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
     image: "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=600",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project"
+    liveUrl: "https://managmentforandom.netlify.app/",
+    githubUrl: "https://github.com/Forandoms/managment_system"
   },
   {
     id: 3,
