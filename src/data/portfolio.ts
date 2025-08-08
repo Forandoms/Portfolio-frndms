@@ -78,8 +78,8 @@ export const projects: Project[] = [
     description: "Modern arayüze sahip yapay zeka destekli akıllı sohbet uygulaması",
     technologies: ["React", "Python", "FastAPI", "OpenAI"],
     image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/yourusername/project"
+    liveUrl: "https://app.netlify.com/projects/foraiinterface/deploys?filter=main",
+    githubUrl: "https://github.com/Forandoms/ai_interface"
   },
   {
     id: 4,
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     description: "Çevresel verileri toplayan ve gösteren Arduino hava durumu istasyonu",
     technologies: ["Arduino", "Sensörler", "Veri Görselleştirme", "C++"],
     image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
-    liveUrl: "https://example.com/weather-station",
-    githubUrl: "https://github.com/yourusername/weather-station"
+    liveUrl: "https://weatherforandom.netlify.app/",
+    githubUrl: "https://github.com/Forandoms/weatherweb"
   }
 ];
