@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
   email: "eymensahin167@gmail.com",
   secondaryEmail: "eyshnsoftware@gmail.com",
   location: "Adana, Çukurova",
-  bio: "Elektrik-Elektronik Mühendisliği Öğrencisi, modern web teknolojilerinde deneyime sahip tutkulu bir full-stack geliştiriciyim. Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum.",
+  bio: "Elektrik-Elektronik Mühendisliği 3. sınıf öğrencisi, modern web teknolojilerinde deneyime sahip tutkulu bir full-stack geliştiriciyim. Yenilikçi çözümler üretmeyi ve yeni teknolojiler öğrenmeyi seviyorum.",
   linkedin: "https://www.linkedin.com/in/eymen-ali-%C5%9Fahin/",
   instagram: "https://www.instagram.com/_eymns_/"
 };
@@ -81,15 +81,7 @@ export const projects: Project[] = [
     liveUrl: "https://foraiinterface.netlify.app/",
     githubUrl: "https://github.com/Forandoms/ai_interface"
   },
-  {
-    id: 4,
-    title: "Akıllı Ev Otomasyonu",
-    description: "Sensörler ve uzaktan kontrol yetenekleriyle Arduino tabanlı akıllı ev sistemi",
-    technologies: ["Arduino", "C++", "IoT", "Sensörler"],
-    image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600",
-    liveUrl: "https://example.com/smart-home",
-    githubUrl: "https://github.com/yourusername/smart-home"
-  },
+
   {
     id: 5,
     title: "Hava Durumu İzleme İstasyonu",
